@@ -2,6 +2,7 @@ package com.yfl.livedata.tRoom
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 /**
  * @Author : YFL  is Creating a porject in My Application
@@ -11,7 +12,8 @@ import androidx.room.RoomDatabase
  * @Purpose :
  */
 @Database(entities = [User::class], version = 1)
+@TypeConverters(Converters::class)
 public abstract class AppDatabase : RoomDatabase() {
 
-    public abstract fun  userDao(): UserDao
+    public abstract fun userDao(): UserDao
 }

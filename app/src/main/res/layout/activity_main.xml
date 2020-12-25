@@ -16,6 +16,8 @@
 
 
     <Button
+        android:textColor="@color/white"
+        android:text="添加"
         android:id="@+id/btn_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,6 +26,8 @@
         app:layout_constraintTop_toBottomOf="@id/tv_show_database" />
 
     <Button
+        android:textColor="@color/white"
+        android:text="查询"
         android:id="@+id/btn_query_id"
         android:layout_width="wrap_content"
 
@@ -31,5 +35,47 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_add" />
+
+    <Button
+        android:textColor="@color/white"
+        android:text="更新"
+        android:id="@+id/btn_query_update"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_add" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/btn_delete_all"
+        android:text="删除"
+        app:layout_constraintTop_toBottomOf="@id/btn_query_update"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:textColor="@color/white"
+        android:text="RX查询"
+        android:id="@+id/btn_query_id_rx"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_delete_all" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/btn_delete_all_rx"
+        android:text="RX删除"
+        app:layout_constraintTop_toBottomOf="@id/btn_query_id_rx"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,8 +8,8 @@ package com.yfl.livedata.tRoom
  * @Purpose :
  */
 class Infom(
-    val name: String,
-    val age: Int
+    var name: String,
+    var age: Int
 ) {
     override fun toString(): String {
         return "Infom(name='$name', age=$age)"

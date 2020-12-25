@@ -3,8 +3,12 @@ package com.yfl.livedata
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
+import com.yfl.livedata.tRoom.AndroidScheduler
 import com.yfl.livedata.tRoom.Infom
 import com.yfl.livedata.tRoom.User
+import io.reactivex.functions.Action
+import io.reactivex.functions.Consumer
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -26,7 +30,41 @@ class MainActivity : BaseActivity() {
             bindViewData(names)
         }
 
+        btn_query_update.setOnClickListener {
+            val loadAllUsers = mAppDatabase.userDao().loadAllUsers()
+            val user = loadAllUsers[0]
+            user.infom.age = 20
+            mAppDatabase.userDao().updateByAge(user)
+                .observeOn(Schedulers.io())
+                .observeOn(AndroidScheduler().mainThread())
+                .subscribe {
+                    mOneMinShow()
+                }
 
+        }
+
+        btn_delete_all.setOnClickListener {
+            mAppDatabase.userDao().deleteAll()
+            tv_show_database.text = null
+        }
+
+        btn_query_id_rx.setOnClickListener {
+            mAppDatabase.userDao().loadAllRxJava()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidScheduler().mainThread())
+                .subscribe(Consumer {
+                      bindViewData(it)
+                }, Consumer {
+                    Toast.makeText(this@MainActivity, "${it.message}", Toast.LENGTH_SHORT).show();
+                }, Action {
+                    Toast.makeText(this@MainActivity, "已走完", Toast.LENGTH_SHORT).show();
+                })
+        }
+
+
+        btn_delete_all_rx.setOnClickListener {
+            mAppDatabase.userDao().deleteAll()
+        }
     }
 
     private fun mOneMinShow() {
