@@ -4,6 +4,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }//此处为添加
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.1"

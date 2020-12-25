@@ -61,4 +61,8 @@ dependencies {
     // 需要用到相关测试工具的话
     testImplementation "androidx.room:room-testing:2.2.5"
 
+    //liveData使用包
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+
 }

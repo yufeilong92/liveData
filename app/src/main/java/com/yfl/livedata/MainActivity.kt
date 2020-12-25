@@ -1,5 +1,6 @@
 package com.yfl.livedata
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
@@ -53,7 +54,7 @@ class MainActivity : BaseActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidScheduler().mainThread())
                 .subscribe(Consumer {
-                      bindViewData(it)
+                    bindViewData(it)
                 }, Consumer {
                     Toast.makeText(this@MainActivity, "${it.message}", Toast.LENGTH_SHORT).show();
                 }, Action {
@@ -64,6 +65,10 @@ class MainActivity : BaseActivity() {
 
         btn_delete_all_rx.setOnClickListener {
             mAppDatabase.userDao().deleteAll()
+        }
+
+        btn_start_room.setOnClickListener {
+            startActivity(Intent(this, RoomViewModelActivity::class.java))
         }
     }
 
