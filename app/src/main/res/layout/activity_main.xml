@@ -30,7 +30,6 @@
         android:text="查询"
         android:id="@+id/btn_query_id"
         android:layout_width="wrap_content"
-
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -45,7 +44,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_add" />
+        app:layout_constraintTop_toBottomOf="@id/btn_query_id" />
 
     <Button
         android:layout_width="wrap_content"

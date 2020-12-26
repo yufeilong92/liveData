@@ -12,14 +12,13 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class RoomViewModelActivity : BaseActivity() {
     var index = 0
-    private val mRoomViewModel: RoomViewModel by lazy {
-        ViewModelProvider(this)[mRoomViewModel::class.java]
-    }
+    private lateinit var mRoomViewModel: RoomViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!::mRoomViewModel.isInitialized)
+            mRoomViewModel = ViewModelProvider(this)[RoomViewModel::class.java]
         setContentView(R.layout.activity_room_view_model)
-
         initEvent()
         initListener()
         initViewModel()
@@ -61,7 +60,6 @@ class RoomViewModelActivity : BaseActivity() {
     }
 
     private fun initViewModel() {
-
         mRoomViewModel.getLoadUsers.observe(this, Observer {
             bindViewData(it)
         })
