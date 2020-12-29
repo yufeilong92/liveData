@@ -32,22 +32,37 @@ class LoadViewModelActivity : BaseActivity() {
             initPopuWindow()
         }
         btn_load_add_sql.setOnClickListener {
-            val valueContent = ContentValues()
-            valueContent.put("name", "小米")
-            valueContent.put("age", 1)
-            valueContent.put("class", "一班级")
-            writableDatabase?.insert("user", null, valueContent)
+            writableDatabase?.let {
+                it.beginTransaction()
+                val valueContent = ContentValues()
+                valueContent.put("name", "小米")
+                valueContent.put("age", 1)
+                valueContent.put("class", "一班级")
+                it.insert("user", null, valueContent)
+                it.setTransactionSuccessful()
+                it.endTransaction()
+            }
+
         }
         btn_load_add_show.setOnClickListener {
-            val couster = writableDatabase?.query("user", null, null, null, null, null, null)
-            val str = StringBuffer()
-            while (couster!!.moveToNext()) {
-                val age = couster.getInt(couster.getColumnIndex("age"))
-                val name = couster.getString(couster.getColumnIndex("name"))
-                val classs = couster.getString(couster.getColumnIndex("class"))
-                str.append("$age---$name---$classs \n\n")
+            writableDatabase?.let {
+                val couster = it.query("user", null, null, null, null, null, null)
+                val str = StringBuffer()
+                while (couster.moveToNext()) {
+                    val age = couster.getInt(couster.getColumnIndex("age"))
+                    val name = couster.getString(couster.getColumnIndex("name"))
+                    val classs = couster.getString(couster.getColumnIndex("class"))
+                    str.append("$age---$name---$classs \n\n")
+
+                }
+                couster.close()
+                tv_load_view_content.text = str.toString()
             }
-            tv_load_view_content.text = str.toString()
+        }
+        btn_load_add_delet.setOnClickListener {
+            writableDatabase?.let {
+                it.delete("user", null, null)
+            }
         }
     }
 
