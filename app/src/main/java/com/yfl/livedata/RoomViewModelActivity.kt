@@ -1,5 +1,6 @@
 package com.yfl.livedata
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -7,7 +8,14 @@ import androidx.lifecycle.ViewModelProvider
 import com.yfl.livedata.tRoom.Infom
 import com.yfl.livedata.tRoom.User
 import com.yfl.livedata.viewModel.RoomViewModel
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.btn_add
+import kotlinx.android.synthetic.main.activity_main.btn_delete_all
+import kotlinx.android.synthetic.main.activity_main.btn_delete_all_rx
+import kotlinx.android.synthetic.main.activity_main.btn_query_id
+import kotlinx.android.synthetic.main.activity_main.btn_query_id_rx
+import kotlinx.android.synthetic.main.activity_main.btn_query_update
+import kotlinx.android.synthetic.main.activity_main.tv_show_database
+import kotlinx.android.synthetic.main.activity_room_view_model.*
 
 
 class RoomViewModelActivity : BaseActivity() {
@@ -56,6 +64,9 @@ class RoomViewModelActivity : BaseActivity() {
 
         btn_delete_all_rx.setOnClickListener {
             mAppDatabase.userDao().deleteAll()
+        }
+        btn_start_load_view.setOnClickListener {
+            startActivity(Intent(this, LoadViewModelActivity::class.java))
         }
     }
 
