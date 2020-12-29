@@ -11,8 +11,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/btn_load_add_sql"
+        android:layout_marginTop="10dp"
+        android:text="addSql"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/tv_load_view_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:text="showSql"
+        android:textAllCaps="false"
+        android:id="@+id/btn_load_add_show"
+        app:layout_constraintTop_toBottomOf="@id/btn_load_add_sql"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

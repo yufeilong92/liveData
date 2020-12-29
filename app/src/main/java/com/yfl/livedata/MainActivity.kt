@@ -68,8 +68,9 @@ class MainActivity : BaseActivity() {
         }
 
         btn_start_room.setOnClickListener {
-            startActivity(Intent(this, RoomViewModelActivity::class.java))
-        }
+            val intent = Intent(this, RoomViewModelActivity::class.java)
+            startActivity(intent)
+       }
     }
 
     private fun mOneMinShow() {

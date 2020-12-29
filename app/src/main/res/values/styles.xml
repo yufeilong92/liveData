@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="default_animation" parent="android:Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_buttom_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_buttom_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_top_out</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_top_in</item>
+
+    </style>
+ <style name="default_theme" parent="Theme.MyApplication">
+     <item name="android:windowAnimationStyle">@style/default_animation</item>
+     <item name="android:windowIsTranslucent">true</item>
+ </style>
+
+
+</resources>
