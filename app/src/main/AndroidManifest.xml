@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.yfl.livedata">
 
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".AppApplication"
@@ -12,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".LoadViewModelActivity"></activity>
+        <activity android:name=".newRefrehs.DiffUtilsActivity"></activity>
+        <activity android:name=".LoadViewModelActivity" />
         <activity android:name=".RoomViewModelActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -22,7 +27,5 @@
             </intent-filter>
         </activity>
     </application>
-   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-       tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
 </manifest>

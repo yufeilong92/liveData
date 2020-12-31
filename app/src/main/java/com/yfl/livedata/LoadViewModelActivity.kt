@@ -1,6 +1,7 @@
 package com.yfl.livedata
 
 import android.content.ContentValues
+import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,9 +9,13 @@ import android.view.ViewGroup
 import android.widget.PopupWindow
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.binioter.guideview.GuideBuilder
 import com.yfl.livedata.db.MySqliteHelp
+import com.yfl.livedata.newRefrehs.DiffUtilsActivity
 import com.yfl.livedata.viewModel.RoomViewModel
 import kotlinx.android.synthetic.main.activity_load_view_model.*
+import java.util.*
+import kotlin.collections.HashMap
 
 class LoadViewModelActivity : BaseActivity() {
 
@@ -58,12 +63,39 @@ class LoadViewModelActivity : BaseActivity() {
                 couster.close()
                 tv_load_view_content.text = str.toString()
             }
+            HashMap<String, String>()
+
         }
         btn_load_add_delet.setOnClickListener {
             writableDatabase?.let {
                 it.delete("user", null, null)
             }
         }
+//        showGuideView()
+        start_diffutil.setOnClickListener {
+            startActivity(Intent(this, DiffUtilsActivity::class.java))
+        }
+    }
+
+    private fun showGuideView() {
+        val buidle = GuideBuilder()
+            .setTargetView(btn_load_add_show)
+            .setAlpha(150)
+            .setHighTargetCorner(20)
+            .setHighTargetPadding(10)
+
+        buidle.setOnVisibilityChangedListener(object : GuideBuilder.OnVisibilityChangedListener {
+            override fun onShown() {
+
+            }
+
+            override fun onDismiss() {
+            }
+
+        })
+        buidle.addComponent(SimpleComponent())
+        val createGuide = buidle.createGuide()
+        createGuide.show(this)
     }
 
     private fun initPopuWindow() {
@@ -79,7 +111,12 @@ class LoadViewModelActivity : BaseActivity() {
         popWinds.setBackgroundDrawable(ColorDrawable(0x00000000))
         val w = tv_load_view_content.width
         popWinds.showAsDropDown(tv_load_view_content, w / 3, tv_load_view_content.height)
-
+        val timer = Timer()
+        timer.schedule(object : TimerTask() {
+            override fun run() {
+                TODO("Not yet implemented")
+            }
+        }, 1000)
     }
 
     private fun initEvent() {

@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.yfl.livedata"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -63,6 +63,8 @@ dependencies {
 
     //liveData使用包
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    implementation 'com.binioter:guideview:1.0.0'
 
 
 }
