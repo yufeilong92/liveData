@@ -86,4 +86,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_height="wrap_content"/>
 
+    <Button
+        android:textAllCaps="false"
+        android:text="start_jon"
+        app:layout_constraintTop_toBottomOf="@id/btn_start_room"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="wrap_content"
+        android:id="@+id/btn_start_job"
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

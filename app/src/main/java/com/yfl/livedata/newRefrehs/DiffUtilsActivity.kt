@@ -1,10 +1,12 @@
 package com.yfl.livedata.newRefrehs
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.yfl.livedata.R
+import com.yfl.livedata.net.NetActivity
 import kotlinx.android.synthetic.main.activity_diff_utils.*
 
 /**
@@ -32,6 +34,9 @@ class DiffUtilsActivity : AppCompatActivity() {
         }
         tv_diffutite_add_more.setOnClickListener {
             addMore()
+        }
+        btn_start_net.setOnClickListener {
+            startActivity(Intent(this, NetActivity::class.java))
         }
     }
 

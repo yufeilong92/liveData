@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
+import com.yfl.livedata.job.JobStartServer
 import com.yfl.livedata.tRoom.AndroidScheduler
 import com.yfl.livedata.tRoom.Infom
 import com.yfl.livedata.tRoom.User
@@ -71,6 +72,9 @@ class MainActivity : BaseActivity() {
             val intent = Intent(this, RoomViewModelActivity::class.java)
             startActivity(intent)
        }
+        btn_start_job.setOnClickListener {
+            JobStartServer.startJob(this)
+        }
     }
 
     private fun mOneMinShow() {
