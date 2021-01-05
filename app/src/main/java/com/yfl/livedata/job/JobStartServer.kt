@@ -25,7 +25,8 @@ import androidx.annotation.RequiresApi
 
             val mBuild = ComponentName(mContext.packageName, JobStartServer::class.java.name)
 
-            val jobInfom = JobInfo.Builder(1000, mBuild).setMinimumLatency(1000)
+            val jobInfom = JobInfo.Builder(1000, mBuild)
+                .setMinimumLatency(1000)
             val build = jobInfom.build()
             jobScheduler.schedule(build)
         }
